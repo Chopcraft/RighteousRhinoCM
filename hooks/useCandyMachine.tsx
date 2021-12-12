@@ -13,7 +13,7 @@ import useWalletBalance from "./useWalletBalance";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { sleep } from "../utils";
 
-const MINT_PRICE_SOL = 1;
+const MINT_PRICE_SOL = 0;
 
 const treasury = new anchor.web3.PublicKey(
     process.env.NEXT_PUBLIC_TREASURY_ADDRESS!
