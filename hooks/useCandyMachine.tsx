@@ -16,15 +16,15 @@ import { sleep } from "../utils";
 
 
 const treasury = new anchor.web3.PublicKey(
-    process.env.NEXT_PUBLIC_TREASURY_ADDRESS!
+    '3CvojwmDB5BgrU2uKCzyn5we4g7zuHNcWwjyawy4g549'
 );
 
 const config = new anchor.web3.PublicKey(
-    process.env.NEXT_PUBLIC_CANDY_MACHINE_CONFIG!
+    '3MKAv72pP6Y5G6BsKiuNbMHqCrRAVPK9H9NaPhNyhQZg'
 );
 
 const candyMachineAddress = new anchor.web3.PublicKey(
-    process.env.NEXT_PUBLIC_CANDY_MACHINE_ID!
+    'BeDaPLdxG2en2jy8qRF1p7Jene7PSDHZiLi61z9efukj'
 );
 
 const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST!;
@@ -46,7 +46,7 @@ export default function useCandyMachine() {
     const [isMinting, setIsMinting] = useState(false);
     const [isSoldOut, setIsSoldOut] = useState(false);
     const [mintStartDate, setMintStartDate] = useState(
-        new Date(parseInt(process.env.NEXT_PUBLIC_CANDY_START_DATE!, 10))
+        new Date(parseInt('1639325100', 10))
     );
 
     useEffect(() => {
@@ -161,7 +161,7 @@ export default function useCandyMachine() {
                 const oldBalance =
                     (await connection.getBalance(wallet?.publicKey)) /
                     LAMPORTS_PER_SOL;
-                const futureBalance = oldBalance - 0.49 * quantity;
+                const futureBalance = oldBalance - .49 * quantity;
 
                 const signedTransactions: any = await mintMultipleToken(
                     candyMachine,
