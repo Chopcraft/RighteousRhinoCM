@@ -154,7 +154,7 @@ const createAssociatedTokenAccountInstruction = (
 
 export const getCandyMachineState = async (
     anchorWallet: anchor.Wallet,
-    candyMachineId: anchor.web3.PublicKey,
+    candyMachineAddress: anchor.web3.PublicKey,
     connection: anchor.web3.Connection
 ): Promise<CandyMachineState> => {
     const provider = new anchor.Provider(connection, anchorWallet, {
@@ -170,12 +170,12 @@ export const getCandyMachineState = async (
             provider
         );
         const candyMachine = {
-            id: candyMachineId,
+            id: candyMachineAddress,
             connection,
             program,
         };
         const state: any = await program.account.candyMachine.fetch(
-            candyMachineId
+            candyMachineAddress
         );
         const itemsAvailable = state.data.itemsAvailable.toNumber();
         const itemsRedeemed = state.itemsRedeemed.toNumber();
@@ -246,7 +246,7 @@ export async function getNFTsForOwner(
     ownerAddress: anchor.web3.PublicKey
 ) {
     const allMintsCandyMachine = await fetchHashTable(
-        process.env.NEXT_PUBLIC_CANDY_MACHINE_ID!
+        "BeDaPLdxG2en2jy8qRF1p7Jene7PSDHZiLi61z9efukj"
     );
     const allTokens = [];
     const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
@@ -256,7 +256,7 @@ export async function getNFTsForOwner(
         }
     );
 
-    for (let index = 0; index < tokenAccounts.value.length; index++) {
+       for (let index = 0; index < tokenAccounts.value.length; index++) {
         const tokenAccount = tokenAccounts.value[index];
         const tokenAmount = tokenAccount.account.data.parsed.info.tokenAmount;
 
