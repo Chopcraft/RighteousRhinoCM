@@ -46,7 +46,7 @@ export default function useCandyMachine() {
     const [isMinting, setIsMinting] = useState(false);
     const [isSoldOut, setIsSoldOut] = useState(false);
     const [mintStartDate, setMintStartDate] = useState(
-        new Date(parseInt("1639325100", 10))
+        new Date(parseInt("1639388100", 10))
     );
 
     useEffect(() => {
