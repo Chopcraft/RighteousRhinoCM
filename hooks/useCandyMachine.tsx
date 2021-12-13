@@ -161,7 +161,7 @@ export default function useCandyMachine() {
                 const oldBalance =
                     (await connection.getBalance(wallet?.publicKey)) /
                     LAMPORTS_PER_SOL;
-                const futureBalance = oldBalance - .5 * quantity;
+                const futureBalance = oldBalance - 0.5 * quantity;
 
                 const signedTransactions: any = await mintMultipleToken(
                     candyMachine,
