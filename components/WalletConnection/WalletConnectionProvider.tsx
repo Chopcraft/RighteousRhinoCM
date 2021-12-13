@@ -18,8 +18,7 @@ import { FC, useMemo } from "react";
 
 const WalletConnectionProvider: FC = ({ children }) => {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
-  const network = 'mainnet-beta'
-   ;
+  const network = 'mainnet-beta' as WalletAdapterNetwork;
 
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
