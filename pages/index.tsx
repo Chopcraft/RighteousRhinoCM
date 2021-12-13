@@ -110,11 +110,11 @@ export default function Home() {
               {new Date(mintStartDate).getTime() < Date.now() ? (
                 <>
                   {isSoldOut ? (
-                    <p>SOLD OUT</p>
+                    <p>Portal Closed</p>
                   ) : (
                     <>
                       <div className="flex flex-col w-1/2">
-                        <h1 className="mb-10 text-3xl font-bold">Mint One</h1>
+                        <h1 className="mb-10 text-3xl font-bold">Mint One Rhino</h1>
                         <button
                           onClick={startMint}
                           disabled={isMinting}
@@ -124,7 +124,7 @@ export default function Home() {
                         </button>
                       </div>
                       <div className="flex flex-col w-1/2">
-                        <h1 className="mb-10 text-3xl font-bold">Mint Many</h1>
+                        <h1 className="mb-10 text-3xl font-bold">Mint Many Rhinos</h1>
                         <MintMany />
                       </div>
                     </>
@@ -143,7 +143,7 @@ export default function Home() {
           )}
         </div>
         <div className="flex flex-col w-full">
-          <h2 className="text-2xl font-bold">My NFTs</h2>
+          <h2 className="text-2xl font-bold">Your Righteous Rhinos</h2>
           <div className="flex mt-3 gap-x-2">
             {(nfts as any).map((nft: any, i: number) => {
               return <AnNFT key={i} nft={nft} />;
