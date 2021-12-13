@@ -65,10 +65,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>next-candy-machine</title>
+        <title>Righteous Candy Machine</title>
         <meta
           name="description"
-          content="Simplified NextJs with typescript example app integrated with Metaplex's Candy Machine"
+          content="Righteous Rhinos Candy Machine Solana Drop"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
