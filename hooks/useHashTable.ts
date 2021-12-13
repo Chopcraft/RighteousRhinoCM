@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { MetadataProgram, Metadata } from "@metaplex/js";
 
-const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST!;
+const rpcHost = "https://still-solitary-paper.solana-mainnet.quiknode.pro/3556f36b7113ada207f0bc78ef72f446f1f3ecdf/";
 const connection = new anchor.web3.Connection(rpcHost);
 export const MAX_NAME_LENGTH = 32;
 export const MAX_URI_LENGTH = 200;
