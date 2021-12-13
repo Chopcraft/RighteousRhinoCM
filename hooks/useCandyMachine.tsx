@@ -16,18 +16,18 @@ import { sleep } from "../utils";
 
 
 const treasury = new anchor.web3.PublicKey(
-    '3CvojwmDB5BgrU2uKCzyn5we4g7zuHNcWwjyawy4g549'
+    "3CvojwmDB5BgrU2uKCzyn5we4g7zuHNcWwjyawy4g549"
 );
 
 const config = new anchor.web3.PublicKey(
-    '3MKAv72pP6Y5G6BsKiuNbMHqCrRAVPK9H9NaPhNyhQZg'
+    "3MKAv72pP6Y5G6BsKiuNbMHqCrRAVPK9H9NaPhNyhQZg"
 );
 
 const candyMachineAddress = new anchor.web3.PublicKey(
-    'BeDaPLdxG2en2jy8qRF1p7Jene7PSDHZiLi61z9efukj'
+    "BeDaPLdxG2en2jy8qRF1p7Jene7PSDHZiLi61z9efukj"
 );
 
-const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST!;
+const rpcHost = "https://still-solitary-paper.solana-mainnet.quiknode.pro/3556f36b7113ada207f0bc78ef72f446f1f3ecdf/";
 const connection = new anchor.web3.Connection(rpcHost);
 
 const txTimeout = 30000;
@@ -161,7 +161,7 @@ export default function useCandyMachine() {
                 const oldBalance =
                     (await connection.getBalance(wallet?.publicKey)) /
                     LAMPORTS_PER_SOL;
-                const futureBalance = oldBalance - .49 * quantity;
+                const futureBalance = oldBalance - "0.49" * quantity;
 
                 const signedTransactions: any = await mintMultipleToken(
                     candyMachine,
