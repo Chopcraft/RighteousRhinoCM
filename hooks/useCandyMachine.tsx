@@ -13,7 +13,7 @@ import useWalletBalance from "./useWalletBalance";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { sleep } from "../utils";
 
-const MINT_PRICE_SOL = 1;
+const MINT_PRICE_SOL = 0.49;
 
 const treasury = new anchor.web3.PublicKey(
     process.env.NEXT_PUBLIC_TREASURY_ADDRESS!
@@ -23,7 +23,7 @@ const config = new anchor.web3.PublicKey(
     process.env.NEXT_PUBLIC_CANDY_MACHINE_CONFIG!
 );
 
-const candyMachineId = new anchor.web3.PublicKey(
+const candyMachineAddress = new anchor.web3.PublicKey(
     process.env.NEXT_PUBLIC_CANDY_MACHINE_ID!
 );
 
@@ -33,7 +33,7 @@ const connection = new anchor.web3.Connection(rpcHost);
 const txTimeout = 30000;
 
 export default function useCandyMachine() {
-    const [, setBalance] = useWalletBalance();
+    const [setBalance] = useWalletBalance();
     const [candyMachine, setCandyMachine] = useState<CandyMachine>();
     const wallet = useWallet();
     const [nftsData, setNftsData] = useState<any>(
@@ -69,7 +69,7 @@ export default function useCandyMachine() {
             const { candyMachine, goLiveDate, itemsRemaining } =
                 await getCandyMachineState(
                     anchorWallet,
-                    candyMachineId,
+                    candyMachineAddress,
                     connection
                 );
 
@@ -77,7 +77,7 @@ export default function useCandyMachine() {
             setMintStartDate(goLiveDate);
             setCandyMachine(candyMachine);
         })();
-    }, [wallet, candyMachineId, connection]);
+    }, [wallet, candyMachineAddress, connection]);
 
     useEffect(() => {
         (async () => {
@@ -91,14 +91,14 @@ export default function useCandyMachine() {
                 const { itemsRemaining, itemsRedeemed, itemsAvailable } =
                     await getCandyMachineState(
                         anchorWallet,
-                        candyMachineId,
+                        candyMachineAddress,
                         connection
                     );
 
                 setNftsData({ itemsRemaining, itemsRedeemed, itemsAvailable });
             }
         })();
-    }, [wallet, candyMachineId, connection, isMinting]);
+    }, [wallet, candyMachineAddress, connection, isMinting]);
 
     const startMint = async () => {
         try {
